@@ -28,8 +28,7 @@ void NetController::controllerSetup(){
 
   // Init ESP-NOW
   if (esp_now_init() != ESP_OK) {
-    if(NetController::getDebug())
-      Serial.println("Error initializing ESP-NOW");
+    Serial.println("Error initializing ESP-NOW");
     
   }
 
@@ -84,7 +83,7 @@ bool NetController::getL(){
  */
 void printMacAddress(){
  
-
+  WiFi.mode(WIFI_STA);
   uint8_t baseMac[6];
   esp_err_t ret = esp_wifi_get_mac(WIFI_IF_STA, baseMac);
   if (ret == ESP_OK) {
