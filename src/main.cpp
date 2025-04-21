@@ -63,6 +63,15 @@ void loop() {
 
   // Actual Code
 
+  // Servo Code
+    // Servo Open
+  if(controller.getX() == true){
+    servo1.write(90);
+  }
+    // Servo Close
+  if(controller.getY() == true){
+    servo1.write(45);
+  }
   // Joystick Right
   if(controller.getJoy1X() > 0){
     int motorSpeed = map(controller.getJoy1X(), 0, 1, 70, 255);
